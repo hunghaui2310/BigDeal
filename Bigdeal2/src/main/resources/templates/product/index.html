@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layouts/main-layout :: main-fragment(  
+                                                ~{:: #home-static-resources},
+                                                ~{:: #home-main-content},
+                                                ~{:: #home-nav}  
+                                               )}">
+
+
+<!-- Mirrored from themes.pixelstrap.com/bigdeal/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Sep 2020 08:00:24 GMT -->
+<head>
+
+</head>
+
+<body>
+	<div id="home-nav"
+		th:replace="~{/fragments/app-fragments :: nav-default}">Home Nav
+	</div>
+	<div id="home-main-content">
+		<!-- Container-fluid starts-->
+		<div class="container-fluid">
+			<div class="page-header">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="page-header-left">
+							<h3>
+								Product List <small>Bigdeal Admin panel</small>
+							</h3>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<ol class="breadcrumb pull-right">
+							<li class="breadcrumb-item"><a href="index.html"><i
+									data-feather="home"></i></a></li>
+							<li class="breadcrumb-item">Digital</li>
+							<li class="breadcrumb-item active">Product List</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Container-fluid Ends-->
+
+		<!-- Container-fluid starts-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="card">
+						<div class="card-header">
+							<div>
+								<a th:href="@{/admin/product/edit}" class="btn btn-primary" th:utext="#{button.add}">Add
+									</a>
+							</div>
+						</div>
+						<div class="card-body">
+							<div id="" class="">
+								<table class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th scope="col" th:utext="#{product.image}">Image</th>
+											<th scope="col" th:utext="#{product.code}">Product code</th>
+											<th scope="col" th:utext="#{product.name}">Product Name</th>
+											<th scope="col" th:utext="#{product.price}">Price</th>
+											<th scope="col" th:utext="#{product.category}">Category</th>
+											<th scope="col" th:utext="#{product.brand}">Brand</th>
+											<th scope="col" th:utext="#{product.discount}">Discount</th>
+											<th scope="col"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="prodInfo : ${paginationProducts.list}">
+											<td><img class="product-image"
+												th:src="@{|/productImage?code=${prodInfo.code}|}" width="80"
+												height="80" /></td>
+											<td th:text="${prodInfo.code}"></td>
+											<td th:text="${prodInfo.name}"></td>
+											<td
+												th:text="${#numbers.formatDecimal(prodInfo.price, 0, 'COMMA', 0, 'POINT')}">
+											</td>
+											<td th:text="${prodInfo.categoryName}"></td>
+											<td th:text="${prodInfo.brandName}"></td>
+											<td th:text="${prodInfo.discount + ' %'}"></td>
+											<td><a
+												th:href="@{/admin/product/edit?code={code}(code=${prodInfo.code})}"
+												class="btn btn-primary" th:utext="#{button.edit}">Edit</a> <a
+												th:href="@{/admin/product/delete?code={code}(code=${prodInfo.code})}"
+												class="btn btn-danger" th:utext="#{button.delete}">Delete</a> <a
+												th:href="@{|/admin/product/view?code=${prodInfo.code}|}"
+												class="btn btn-info"><span class="fa fa-eye"></span>View</a></td>
+										</tr>
+
+									</tbody>
+								</table>
+								<br />
+								<div class="page-navigator"
+									th:if="${paginationProducts.totalPages > 1}">
+									<th:block
+										th:each="page : ${paginationProducts.navigationPages}">
+
+										<a th:href="@{|/admin/products?page=${page}|}"
+											th:if="${page != -1}" class="nav-item" th:utext="${page}"></a>
+
+										<span class="nav-item" th:if="${page == -1}"> ... </span>
+
+									</th:block>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Container-fluid Ends-->
+
+	</div>
+
+</body>
+
+<!-- Mirrored from themes.pixelstrap.com/bigdeal/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Sep 2020 08:01:49 GMT -->
+</html>

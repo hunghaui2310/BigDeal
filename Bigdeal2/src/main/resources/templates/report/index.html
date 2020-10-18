@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{layouts/main-layout :: main-fragment(  
+                                                ~{:: #home-static-resources},
+                                                ~{:: #home-main-content},
+                                                ~{:: #home-nav}  
+                                               )}">
+
+
+<!-- Mirrored from themes.pixelstrap.com/bigdeal/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Sep 2020 08:00:24 GMT -->
+<head>
+
+</head>
+
+<body>
+	<div id="home-nav"
+		th:replace="~{/fragments/app-fragments :: nav-default}">Home Nav
+	</div>
+	<div id="home-main-content">
+		<!-- Container-fluid starts-->
+		<div class="container-fluid">
+			<div class="page-header">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="page-header-left">
+							<h3>
+								Brand List <small>Bigdeal Admin panel</small>
+							</h3>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<ol class="breadcrumb pull-right">
+							<li class="breadcrumb-item"><a href="/admin"><i
+									data-feather="home"></i>Home</a></li>
+							<li class="breadcrumb-item active">Brand List</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Container-fluid Ends-->
+
+		<!-- Container-fluid starts-->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="card">
+						<div class="card-header">
+							<div>
+<!-- 								<a th:href="@{/admin/blogs/edit}" class="btn btn-primary"><i class="fa fa-plus" th:utext="#{button.add}"></i> -->
+<!-- 									</a> -->
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th scope="col">Product Code</th>
+											<th scope="col">Quantity</th>
+											<th scope="col">Amount</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="item : ${listOrderDetail}">											
+											<td th:text="${item.productCode}"></td>
+											<td th:text="${item.quanity}"></td>
+											<td th:text="${#numbers.formatDecimal(item.amount, 0, 'COMMA', 2, 'POINT')}"></td>
+											
+											
+										</tr>
+
+									</tbody>
+								</table>
+								<br />
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Container-fluid Ends-->
+
+	</div>
+
+</body>
+
+<!-- Mirrored from themes.pixelstrap.com/bigdeal/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Sep 2020 08:01:49 GMT -->
+</html>
+
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Books Shop Online</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+   </head>
+   <body>
+      <th:block th:include="/_header"></th:block>
+      <th:block th:include="/_menu"></th:block>
+       
+      <div class="page-title">Shopping Cart Demo</div>
+      <div class="demo-container">
+         <h3>Demo content</h3>
+         <ul>
+            <li>Buy online</li>
+            <li>Admin pages</li>
+            <li>Reports</li>
+         </ul>
+      </div>
+       
+      <th:block th:include="/_footer"></th:block>
+       
+   </body>
+</html> -->
