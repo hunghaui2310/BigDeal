@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.bigdeal.entity.Account;
+import com.bigdeal.form.*;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.http.client.ClientProtocolException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bigdeal.constants.Consts;
@@ -37,10 +36,6 @@ import com.bigdeal.dao.WishDAO;
 import com.bigdeal.entity.Order;
 import com.bigdeal.entity.Product;
 import com.bigdeal.entity.Wish;
-import com.bigdeal.form.AccountForm;
-import com.bigdeal.form.CustomerForm;
-import com.bigdeal.form.ProductRatingForm;
-import com.bigdeal.form.WishForm;
 import com.bigdeal.model.CartInfo;
 import com.bigdeal.model.CustomerInfo;
 import com.bigdeal.model.GooglePojo;
@@ -106,6 +101,30 @@ public class UserController {
 		model.addAttribute("brands", brandDAO.findAll());
 		model.addAttribute("banners", bannerDAO.findAll());
 		return "/frontend/login";
+	}
+
+	@PostMapping("/usr/reset-password/{username}")
+	public String resetPassword(@PathVariable(value = "username") String userName,
+			@ModelAttribute(value = "forgotForm") ForgotForm forgotForm,
+								Model model) {
+		try {
+//			ForgotForm forgotForm = new ForgotForm();
+			model.addAttribute("username", userName);
+			Account account = accountDAO.findAccount(userName);
+			if (account.getResetCode() == Integer.parseInt(forgotForm.getCode()) && userName.equals(account.getUserName())) {
+				accountDAO.resetPassword(forgotForm.getPassword(), userName);
+			}
+			return "/frontend/login";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect:/usr/reset-password/" + userName;
+		}
+	}
+
+	// GET trang quen mat khau
+	@GetMapping(value = "/usr/forgot-password")
+	public String finishForgotPassword() {
+		return "/frontend/forgot-password";
 	}
 
 	// GET: Hiển thị giỏ hàng.

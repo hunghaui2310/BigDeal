@@ -29,6 +29,12 @@ public class Account implements Serializable {
 	@Column(name = "User_Role", length = 20, nullable = false)
 	private String userRole;
 
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "reset_code")
+	private Integer resetCode;
+
 	public String getUserName() {
 		return userName;
 	}
@@ -61,9 +67,31 @@ public class Account implements Serializable {
 		this.userRole = userRole;
 	}
 
-	@Override
-	public String toString() {
-		return "[" + this.userName + "," + this.encrytedPassword + "," + this.userRole + "]";
+	public String getEmail() {
+		return email;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getResetCode() {
+		return resetCode;
+	}
+
+	public void setResetCode(Integer resetCode) {
+		this.resetCode = resetCode;
+	}
+
+	@Override
+	public String toString() {
+		return "Account{" +
+				"userName='" + userName + '\'' +
+				", encrytedPassword='" + encrytedPassword + '\'' +
+				", active=" + active +
+				", userRole='" + userRole + '\'' +
+				", email='" + email + '\'' +
+				", resetCode='" + resetCode + '\'' +
+				'}';
+	}
 }

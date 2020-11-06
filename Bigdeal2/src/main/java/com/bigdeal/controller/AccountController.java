@@ -1,16 +1,16 @@
 package com.bigdeal.controller;
 
+import com.bigdeal.service.EmailService;
 import org.apache.commons.lang.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bigdeal.constants.Consts;
@@ -30,6 +30,11 @@ public class AccountController {
 
 	@Autowired
 	private AccountDAO accountDAO;
+
+	@Autowired
+    private EmailService emailService;
+
+    private static Logger log = LoggerFactory.getLogger(EmailService.class);
 
 	// Danh sách sản phẩm.
 	@RequestMapping(value = Consts.adminPath + "/accounts", method = RequestMethod.GET)
@@ -104,6 +109,40 @@ public class AccountController {
 	public String deleteUser(@RequestParam("id") String id, Model model) {
 		accountDAO.delete(id);
 		return "redirect:/admin/accounts";
+	}
+
+	@GetMapping(value = "/forgot-password")
+	public String forgotPassword(@RequestParam(value = "email") String email, @RequestParam(value = "userName") String userName, Model model) {
+        try {
+            model.addAttribute("email", email);
+            model.addAttribute("userName", userName);
+            Account account = accountDAO.findAccount(userName);
+            if (account != null) {
+                AccountForm accountForm = new AccountForm();
+                accountForm.setEmail(account.getEmail());
+                accountForm.setUserName(account.getUserName());
+                accountForm.setPassword(account.getEncrytedPassword());
+                accountForm.setUserRole(account.getUserRole());
+                if (account.getUserName().equals(userName)) {
+//                    String code = emailService.sendEmail(email, userName);
+					String code = "1234";
+                    log.info("Email sent to " + email);
+                    if (code != null) {
+                        account.setResetCode(Integer.parseInt(code));
+                        accountDAO.save(accountForm);
+                        model.addAttribute("success", true);
+                        model.addAttribute("message", "Please check your email to reset password!");
+                    } else {
+                        model.addAttribute("success", false);
+                        model.addAttribute("message", "Error when send email. Try again later!");
+                    }
+                }
+            }
+			return "/frontend/forgot-password-finish";
+        } catch (Exception e) {
+            e.printStackTrace();
+			return "redirect:/usr/forgot-password";
+        }
 	}
 
 }

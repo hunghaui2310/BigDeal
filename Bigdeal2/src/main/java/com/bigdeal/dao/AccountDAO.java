@@ -106,4 +106,7 @@ public class AccountDAO {
 		}
 	}
 
+	public boolean resetPassword(String password, String userName) {
+		return false;
+	}
 }

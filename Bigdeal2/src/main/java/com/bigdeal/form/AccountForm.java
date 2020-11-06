@@ -8,6 +8,7 @@ public class AccountForm {
 	private String userRole;
 	private String password;
 	private boolean active;
+	private String email;
 
 	private boolean newMode = false;
 
@@ -63,4 +64,11 @@ public class AccountForm {
 		this.password = password;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
