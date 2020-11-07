@@ -1,0 +1,73 @@
+<section class="product section-big-pb-space">
+  <div class="custom-container">
+    <div class="row ">
+      <div class="col pr-0">
+        <div class="product-slide-6 no-arrow mb--10" *ngIf="products">
+          <div *ngFor="let product of products" class="border p-1 m-1">
+            <div class="product-box">
+              <div class="product-imgbox">
+                <div class="product-front">
+                  <img src="{{product.urlImage + '/' + product.lstFileName[0]}}" class="img-fluid  " alt="product">
+                </div>
+                <div class="product-back" *ngIf="product.lstFileName[1]">
+                  <img src="{{product.urlImage + '/' + product.lstFileName[1]}}" class="img-fluid  " alt="product">
+                </div>
+                <div class="product-icon">
+                  <button onclick="openCart()" type="button">
+                    <i class="ti-bag"></i>
+                  </button>
+                  <a href="javascript:void(0)" title="Add to Wishlist">
+                    <i class="ti-heart" aria-hidden="true"></i>
+                  </a>
+                  <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                    <i class="ti-search" aria-hidden="true"></i>
+                  </a>
+                  <a href="compare.html" title="Compare">
+                    <i class="fa fa-exchange" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <div class="new-label" *ngIf="product.createDate">
+                  <div>new</div>
+                </div>
+                <div class="on-sale" *ngIf="product.discount">
+                  on sale
+                </div>
+              </div>
+              <div class="product-detail">
+                <div class="detail-title">
+                  <div class="detail-left">
+                    <div class="rating-star">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                    <a href="#">
+                      <h6 class="price-title">
+                        {{product.name}}
+                      </h6>
+                    </a>
+                  </div>
+                  <div class="detail-right">
+                    <div class="check-price" *ngIf="product.discount">
+                      $ {{product.price}}
+                    </div>
+                    <div class="price">
+                      <div class="price">
+                        $ {{product.price - (product.price * product.discount / 100) | number}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center" *ngIf="products && products.length == 0">
+          <h3>[Không có sản phẩm nào]</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

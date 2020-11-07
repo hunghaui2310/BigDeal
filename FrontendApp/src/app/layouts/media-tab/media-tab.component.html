@@ -1,0 +1,14 @@
+<section class="section-big-pb-space ratio_40 pb-10">
+  <!--tab product-->
+  <section class="section-py-space">
+    <div class="tab-product-main">
+      <div class="tab-prodcut-contain">
+        <ul class="tabs tab-title">
+          <li *ngFor="let category of categories; i as index" (click)="activeCate(category)" class="current"><a>{{category.categoryName}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!--tab product-->
+  <app-product [products]="products"></app-product>
+</section>
