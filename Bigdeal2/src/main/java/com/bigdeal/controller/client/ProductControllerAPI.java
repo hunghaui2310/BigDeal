@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -39,12 +40,11 @@ public class ProductControllerAPI {
     @Value("${url.product.root}")
     private String urlProductFolder;
 
-    @GetMapping("/getAll")
-    public ResponseForm getAllProduct(@RequestParam(value = "name", defaultValue = "") String likeName,
+    @GetMapping("/getByCategory")
+    public ResponseForm getAllProduct(@RequestParam(value = "categoryId", defaultValue = "1") Long categoryId,
                                       @RequestParam(value = "page", defaultValue = "1") int page) {
         try {
-            PaginationResult<ProductInfo> result = productDAO.queryProducts(page,
-                    Consts.RESULT_PER_PAGE, Consts.MAX_NAVIGATION_PAGE, likeName);
+            PaginationResult<ProductInfo> result = productDAO.queryProductsByCategory(categoryId, page,  Consts.RESULT_PER_PAGE, Consts.MAX_NAVIGATION_PAGE);
             for (ProductInfo productInfo : result.getList()) {
                 Categories category = categoryDAO.findById(productInfo.getCategoryId());
                 Brands brand = brandDAO.findById(productInfo.getBrandId());
@@ -60,8 +60,12 @@ public class ProductControllerAPI {
                 for (File file : listOfFiles) {
                     lstNames.add(file.getName());
                 }
-                productInfo.setProductImage(urlProductFolder + "/" + category.getId() + "/" + productInfo.getCode());
+                productInfo.setUrlImage(urlProductFolder + "/" + category.getId() + "/" + productInfo.getCode());
                 productInfo.setLstFileName(lstNames);
+                // set la san pham moi neu thoi gian tao < thoi gian hien tai 1 thang
+                if (productInfo.getCreateDate().getMonth() > new Date().getMonth() + 1) {
+                    productInfo.setCreateDate(null);
+                }
             }
             return ResponseForm.build(HttpServletResponse.SC_OK, true, "", result);
         } catch (Exception e) {

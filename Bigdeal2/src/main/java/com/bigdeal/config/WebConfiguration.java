@@ -11,6 +11,8 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import com.bigdeal.servlet.VnpayServlet;
 
 @Configuration
+@EnableWebMvc
 public class WebConfiguration implements WebMvcConfigurer {
 	@Bean
 	public Servlet foo() {
@@ -56,5 +59,16 @@ public class WebConfiguration implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());
+	}
+
+	@Override
+	public void addCorsMappings(CorsRegistry corsRegistry) {
+		corsRegistry.addMapping("/**")
+				.allowedOrigins("http://localhost:4200")
+				.allowedMethods("*")
+				.maxAge(3600L)
+				.allowedHeaders("*")
+				.exposedHeaders("Authorization")
+				.allowCredentials(true);
 	}
 }

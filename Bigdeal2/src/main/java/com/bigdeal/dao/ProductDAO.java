@@ -117,9 +117,6 @@ public class ProductDAO {
 				image = productForm.getFileData().getBytes();
 			} catch (IOException e) {
 			}
-			if (image != null && image.length > 0) {
-				product.setImage(image);
-			}
 		}
 		if (isNew) {
 			session.persist(product);
@@ -147,6 +144,24 @@ public class ProductDAO {
 		return new PaginationResult<ProductInfo>(query, page, maxResult, maxNavigationPage);
 	}
 
+	public PaginationResult<ProductInfo> queryProductsByCategory(Long categoryId, int page, int maxResult, int maxNavigationPage) {
+		String sql = "Select new " + ProductInfo.class.getName() //
+				+ "(p.code, p.name, p.price, p.categoryId, p.brandId, p.discount, p.createDate) " + " from "//
+				+ Product.class.getName() + " p ";
+		if (categoryId != null) {
+			sql += " Where lower(p.categoryId) like :categoryId ";
+		}
+		sql += " order by p.code desc ";
+		//
+		Session session = this.sessionFactory.getCurrentSession();
+		Query<ProductInfo> query = session.createQuery(sql, ProductInfo.class);
+
+		if (categoryId != null) {
+			query.setParameter("categoryId", categoryId);
+		}
+		return new PaginationResult<ProductInfo>(query, page, maxResult, maxNavigationPage);
+	}
+
 	public PaginationResult<ProductInfo> queryProducts(int page, int maxResult, int maxNavigationPage) {
 		return queryProducts(page, maxResult, maxNavigationPage, null);
 	}
@@ -159,6 +174,6 @@ public class ProductDAO {
 		}
 	}
 
-	
+
 
 }

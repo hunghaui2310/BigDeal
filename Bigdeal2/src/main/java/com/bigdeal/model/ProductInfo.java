@@ -4,6 +4,9 @@ import javax.persistence.Column;
 
 import com.bigdeal.entity.Product;
 
+import java.util.Date;
+import java.util.List;
+
 public class ProductInfo {
 	private String code;
 	private String name;
@@ -13,6 +16,9 @@ public class ProductInfo {
 	private String categoryName;
 	private String brandName;
 	private int discount;
+	private String urlImage;
+	private List<String> lstFileName;
+	private Date createDate;
 
 	public ProductInfo() {
 	}
@@ -26,13 +32,14 @@ public class ProductInfo {
 	}
 
 	// Sử dụng trong JPA/Hibernate query
-	public ProductInfo(String code, String name, double price, Long categoryId, Long brandId, int discount) {
+	public ProductInfo(String code, String name, double price, Long categoryId, Long brandId, int discount, Date createDate) {
 		this.code = code;
 		this.name = name;
 		this.price = price;
 		this.categoryId = categoryId;
 		this.brandId = brandId;
 		this.discount = discount;
+		this.createDate = createDate;
 	}
 
 	public String getCode() {
@@ -99,4 +106,27 @@ public class ProductInfo {
 		this.discount = discount;
 	}
 
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
+	}
+
+	public List<String> getLstFileName() {
+		return lstFileName;
+	}
+
+	public void setLstFileName(List<String> lstFileName) {
+		this.lstFileName = lstFileName;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 }

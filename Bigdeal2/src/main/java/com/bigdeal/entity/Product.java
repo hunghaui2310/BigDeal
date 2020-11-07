@@ -35,9 +35,6 @@ public class Product implements Serializable {
 
 	@Column(name = "discount")
 	private int discount;
-	@Lob
-	@Column(name = "Image", length = Integer.MAX_VALUE, nullable = true)
-	private byte[] image;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "Create_Date", nullable = false)
@@ -78,14 +75,6 @@ public class Product implements Serializable {
 
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
-	}
-
-	public byte[] getImage() {
-		return image;
-	}
-
-	public void setImage(byte[] image) {
-		this.image = image;
 	}
 
 	public Long getCategoryId() {

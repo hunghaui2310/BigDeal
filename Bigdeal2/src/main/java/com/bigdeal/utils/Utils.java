@@ -3,6 +3,11 @@ package com.bigdeal.utils;
 import javax.servlet.http.HttpServletRequest;
 
 import com.bigdeal.model.CartInfo;
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Base64;
 
 public class Utils {
 
@@ -31,5 +36,4 @@ public class Utils {
 	public static CartInfo getLastOrderedCartInSession(HttpServletRequest request) {
 		return (CartInfo) request.getSession().getAttribute("lastOrderedCart");
 	}
-
 }
