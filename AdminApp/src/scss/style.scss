@@ -6,5 +6,9 @@
 
 // If you want to add something do it here
 @import "custom";
-
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 app-dashboard { justify-content: center; }
+
+.mw-90 {
+  max-width: 90px;
+}
