@@ -4,8 +4,10 @@ import com.bigdeal.constants.Consts;
 import com.bigdeal.dao.BrandDAO;
 import com.bigdeal.dao.CategoryDAO;
 import com.bigdeal.dao.ProductDAO;
+import com.bigdeal.dao.ProductRatingDAO;
 import com.bigdeal.entity.Brands;
 import com.bigdeal.entity.Categories;
+import com.bigdeal.entity.ProductRating;
 import com.bigdeal.form.ResponseForm;
 import com.bigdeal.model.ProductInfo;
 import com.bigdeal.pagination.PaginationResult;
@@ -29,10 +31,15 @@ public class ProductControllerAPI {
 
     @Autowired
     private ProductDAO productDAO;
+
     @Autowired
     private CategoryDAO categoryDAO;
+
     @Autowired
     private BrandDAO brandDAO;
+
+    @Autowired
+    private ProductRatingDAO productRatingDAO;
 
     @Value("${path.product.root}")
     private String uploadFolder;
@@ -47,6 +54,12 @@ public class ProductControllerAPI {
             PaginationResult<ProductInfo> result = productDAO.queryProductsByCategory(categoryId, page,  Consts.RESULT_PER_PAGE, Consts.MAX_NAVIGATION_PAGE);
             for (ProductInfo productInfo : result.getList()) {
                 Categories category = categoryDAO.findById(productInfo.getCategoryId());
+                List<ProductRating> productRatings = productRatingDAO.findByProductCode(productInfo.getCode());
+                int rating = 0;
+                for (ProductRating productRating : productRatings) {
+                    rating += productRating.getRating();
+                }
+                productInfo.setRating(Math.round((float)rating / productRatings.size()));
                 Brands brand = brandDAO.findById(productInfo.getBrandId());
                 if (category != null) {
                     productInfo.setCategoryName(category.getCategoryName());

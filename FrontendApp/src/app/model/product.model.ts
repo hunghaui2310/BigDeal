@@ -10,6 +10,7 @@ export interface IProduct {
   urlImage?: string;
   lstFileName?: any;
   createDate?: any;
+  rating?: number;
 }
 
 export class ProductModel implements IProduct{
@@ -24,7 +25,8 @@ export class ProductModel implements IProduct{
     discount?: number,
     urlImage?: string,
     lstFileName?: any,
-    createDate?: any
+    createDate?: any,
+    rating?: number
   ) {
   }
 }

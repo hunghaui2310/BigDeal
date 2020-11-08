@@ -19,6 +19,7 @@ public class ProductInfo {
 	private String urlImage;
 	private List<String> lstFileName;
 	private Date createDate;
+	private int rating;
 
 	public ProductInfo() {
 	}
@@ -128,5 +129,13 @@ public class ProductInfo {
 
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 }

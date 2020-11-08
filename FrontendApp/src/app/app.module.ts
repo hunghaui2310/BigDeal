@@ -36,6 +36,7 @@ import { NotificationProductComponent } from './layouts/notification-product/not
 import { CartComponent } from './component/cart/cart.component';
 import { BreadcrumbComponent } from './layouts/breadcrumb/breadcrumb.component';
 import {HttpClientModule} from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

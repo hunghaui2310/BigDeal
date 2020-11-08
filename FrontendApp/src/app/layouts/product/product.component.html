@@ -37,11 +37,7 @@
                 <div class="detail-title">
                   <div class="detail-left">
                     <div class="rating-star">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
+                      <ngb-rating [max]="5" [(rate)]="product.rating" [readonly]="true"></ngb-rating>
                     </div>
                     <a href="#">
                       <h6 class="price-title">
