@@ -19,24 +19,24 @@ export const navItems: INavData[] = [
     name: 'Admin management'
   },
   {
-    name: 'Base',
-    url: '/base',
+    name: 'Product',
+    url: '/management/product',
     icon: 'icon-puzzle',
   },
   {
-    name: 'Buttons',
-    url: '/buttons',
+    name: 'Category',
+    url: '/management/category',
     icon: 'icon-cursor',
+  },
+  {
+    name: 'Brand',
+    url: '/management/brand',
+    icon: 'icon-star'
   },
   {
     name: 'Charts',
     url: '/charts',
     icon: 'icon-pie-chart'
-  },
-  {
-    name: 'Icons',
-    url: '/icons',
-    icon: 'icon-star'
   },
   {
     name: 'Notifications',
@@ -86,29 +86,4 @@ export const navItems: INavData[] = [
       }
     ]
   },
-  {
-    name: 'Disabled',
-    url: '/dashboard',
-    icon: 'icon-ban',
-    badge: {
-      variant: 'secondary',
-      text: 'NEW'
-    },
-    attributes: { disabled: true },
-  },
-  {
-    name: 'Download CoreUI',
-    url: 'http://coreui.io/angular/',
-    icon: 'icon-cloud-download',
-    class: 'mt-auto',
-    variant: 'success',
-    attributes: { target: '_blank', rel: 'noopener' }
-  },
-  {
-    name: 'Try CoreUI PRO',
-    url: 'http://coreui.io/pro/angular/',
-    icon: 'icon-layers',
-    variant: 'danger',
-    attributes: { target: '_blank', rel: 'noopener' }
-  }
 ];

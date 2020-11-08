@@ -58,6 +58,10 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
+      {
+        path: 'management',
+        loadChildren: () => import('./views/management/management.module').then(m => m.ManagementModule)
+      },
     ]
   },
   { path: '**', component: P404Component }

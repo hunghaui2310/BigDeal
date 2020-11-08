@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 public class Brands implements java.io.Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 8798186379745491593L;
 	@Id
@@ -30,9 +30,6 @@ public class Brands implements java.io.Serializable {
 	private Long id;
 	@Column(name = "brand_name", length = 50, nullable = false)
 	private String brandName;
-	@Lob
-	@Column(name = "image", length = Integer.MAX_VALUE, nullable = true)
-	private byte[] image;
 	@Column(name = "description", length = 250)
 	private String description;
 	private String slug;
@@ -49,17 +46,15 @@ public class Brands implements java.io.Serializable {
 	public Brands() {
 	}
 
-	public Brands(String brandName, byte[] image, String description, String slug) {
+	public Brands(String brandName, String description, String slug) {
 		this.brandName = brandName;
-		this.image = image;
 		this.description = description;
 		this.slug = slug;
 	}
 
-	public Brands(String brandName, byte[] image, String description, String slug, Date createdAt, Date updatedAt,
+	public Brands(String brandName, String description, String slug, Date createdAt, Date updatedAt,
 			Date deletedAt) {
 		this.brandName = brandName;
-		this.image = image;
 		this.description = description;
 		this.slug = slug;
 		this.createdAt = createdAt;
@@ -81,14 +76,6 @@ public class Brands implements java.io.Serializable {
 
 	public void setBrandName(String brandName) {
 		this.brandName = brandName;
-	}
-
-	public byte[] getImage() {
-		return this.image;
-	}
-
-	public void setImage(byte[] image) {
-		this.image = image;
 	}
 
 	public String getDescription() {

@@ -1,0 +1,15 @@
+.image_product {
+  position: relative;
+}
+.img_model {
+  margin: 0 10px 15px 10px;
+}
+.btn_delete_img {
+  transition: 0.5s ease;
+  position: absolute;
+  top: -5px;
+  right: -30px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}

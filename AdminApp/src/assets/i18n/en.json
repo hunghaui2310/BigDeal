@@ -1,5 +1,32 @@
 {
   "management": {
-    "product": "Product"
+    "confirmDelete": "Are you sure want to delete",
+    "create": "Create",
+    "no": "No",
+    "yes": "Yes"
+  },
+  "product": {
+    "title": "Product",
+    "search": "Search",
+    "create": "Create Product",
+    "edit": "Edit Product",
+    "delete": "Delete Product",
+    "upload": "Upload",
+    "productCode": "Product Code",
+    "productName": "Product Name",
+    "productPrice": "Price",
+    "productCategory": "Category",
+    "productBrand": "Brand",
+    "createDate": "Create Date",
+    "discount": "Discount"
+  },
+  "brand": {
+    "title": "Brand",
+    "name": "Brand Name",
+    "description": "Description",
+    "createDate": "Create Date",
+    "deleteDate": "Delete Date",
+    "updateDate": "Update Date",
+    "image": "Image"
   }
 }

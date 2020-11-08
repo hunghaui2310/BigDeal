@@ -38,7 +38,7 @@ public class BrandDAO {
 			return null;
 		}
 	}
-	
+
 	public List<Brands> findAll() {
 		try {
 			String sql = "Select e from " + Brands.class.getName() + " e ";
@@ -57,7 +57,7 @@ public class BrandDAO {
 		if (item == null) {
 			return null;
 		}
-		return new Brands(item.getBrandName(), item.getImage(), item.getDescription(), item.getSlug(),
+		return new Brands(item.getBrandName(), item.getDescription(), item.getSlug(),
 				item.getDeletedAt(), item.getCreatedAt(), item.getUpdatedAt());
 	}
 
@@ -92,9 +92,9 @@ public class BrandDAO {
 				image = form.getFileData().getBytes();
 			} catch (IOException e) {
 			}
-			if (image != null && image.length > 0) {
-				item.setImage(image);
-			}
+//			if (image != null && image.length > 0) {
+//				item.setImage(image);
+//			}
 		}
 		if (isNew) {
 			session.persist(item);
@@ -105,7 +105,7 @@ public class BrandDAO {
 
 	public PaginationResult<BrandInfo> query(int page, int maxResult, int maxNavigationPage, String likeName) {
 		String sql = "Select new " + BrandInfo.class.getName() //
-				+ "(p.id, p.brandName, p.description) " + " from "//
+				+ "(p.id, p.brandName, p.description, p.createdAt, p.deletedAt, p.updatedAt) " + " from "//
 				+ Brands.class.getName() + " p ";
 		if (likeName != null && likeName.length() > 0) {
 			sql += " Where lower(p.brandName) like :likeName ";

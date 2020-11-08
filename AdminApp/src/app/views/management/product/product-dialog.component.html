@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-between pb-3 align-items-center">
+  <h3 *ngIf="!data.product">{{'product.create' | translate}}</h3>
+  <h3 *ngIf="data.product">{{'product.edit' | translate}}</h3>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="onBack()" size="6MB">
+    <span aria-hidden="true" style="border: none">&times;</span>
+  </button>
+</div>
+
+<div class="row">
+  <div class="col">
+    <form>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{'product.productCode' | translate}}</mat-label>
+        <input [formControl]="productCode" matInput required [readonly]="data.product">
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{'product.productName' | translate}}</mat-label>
+        <input matInput [formControl]="productName">
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{'product.productBrand' | translate}}</mat-label>
+        <mat-select [formControl]="brand" required>
+          <mat-option *ngFor="let cate of brands" [value]="cate.id">
+            {{cate.brandName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+  </div>
+  <div class="col">
+    <form>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{'product.productPrice' | translate}}</mat-label>
+        <input type="number" matInput [formControl]="productPrice" required>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{'product.discount' | translate}}</mat-label>
+        <input type="number" matInput [formControl]="discount">
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{'product.productCategory' | translate}}</mat-label>
+        <mat-select [formControl]="category" required>
+          <mat-option *ngFor="let cate of categories" [value]="cate.id">
+            {{cate.categoryName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+
+<div class="d-flex justify-content-start">
+  <div class="pr-3">
+    <button mat-raised-button color="primary" (click)="onClick()"><i
+      class="fa fa-upload" aria-hidden="true"></i>
+      <span>{{'product.upload' | translate}}</span>
+    </button>
+    <input type="file" accept="image/*" id="fileUpload" name="fileUpload" multiple
+           (change)="importImage($event)"
+           class="d-none"/>
+  </div>
+  <div class="d-flex flex-wrap">
+  <div class="image_product" *ngFor="let image of imageChoose">
+    <img src="{{image}}" width="150" height="150" class="img_model border" alt="Image Product">
+    <button (click)="deleteImage(image)" *ngIf="imageChoose && imageChoose.length > 0" class="btn_delete_img" mat-icon-button aria-label="Delete Product">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div>
+    <button (click)=onBack() class="btn btn-secondary m-2 btn-100">
+      <i class="fa fa-window-close" aria-hidden="true"></i>&nbsp;<span> {{'management.no' | translate}}</span>
+    </button>
+    <button [disabled]="productCode.invalid || productPrice.invalid || brand.invalid || category.invalid" color="primary" class="btn btn-primary m-2 btn-100" (click)=actionDialog()>
+      <i class="fa fa-save" aria-hidden="true"></i>&nbsp;<span> {{'management.yes' | translate}}</span>
+    </button>
+  </div>
+</div>

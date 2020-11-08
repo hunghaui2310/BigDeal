@@ -46,6 +46,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { LanguagesComponent } from './views/languages/languages.component';
+import { DeleteDialogComponent } from './views/delete-dialog/delete-dialog.component';
+import {ToastrModule} from 'ngx-toastr';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -75,7 +77,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChartsModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -84,12 +87,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     P500Component,
     LoginComponent,
     RegisterComponent,
-    LanguagesComponent
+    LanguagesComponent,
+    DeleteDialogComponent,
   ],
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  entryComponents: [DeleteDialogComponent]
 })
 export class AppModule { }

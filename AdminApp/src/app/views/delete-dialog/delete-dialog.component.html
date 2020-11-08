@@ -1,0 +1,21 @@
+<div class="row" style="margin-right: 0 !important; margin-left: 0 !important;">
+  <div class="col-md-10 modal-body">
+      <span> <img style="margin: 0 3px 3px 0;" src="assets/img/icons8-question-mark-16.png"
+                  alt="">{{('management.confirmDelete' | translate)}}&nbsp;?</span>
+  </div>
+
+  <div class="col-md-2 modal-body">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="onBack()" size="6MB">
+      <span aria-hidden="true" style="border: none">&times;</span>
+    </button>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button (click)=onBack() class="btn btn-secondary m-2 btn-100">
+    <i class="fa fa-window-close" aria-hidden="true"></i>&nbsp;<span> {{'management.no' | translate}}</span>
+  </button>
+  <button color="primary" class="btn btn-primary m-2 btn-100" (click)=removeItem()>
+    <i class="fa fa-save" aria-hidden="true"></i>&nbsp;<span> {{'management.yes' | translate}}</span>
+  </button>
+</div>

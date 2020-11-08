@@ -6,4 +6,6 @@ public class Consts {
 	public static final int RESULT_PER_PAGE = 12;
 	public static final int MAX_NAVIGATION_PAGE = 6;
 	public static final String ROLE_USER = "ROLE_USER";
+	public static final String SUCCESS = "SUCCESS";
+	public static final String FAILED = "FAILED";
 }

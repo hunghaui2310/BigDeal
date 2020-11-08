@@ -3,12 +3,27 @@
 
 // Import styles
 @import "~@coreui/coreui/scss/coreui";
-
+@import '~ngx-toastr/toastr';
 // If you want to add something do it here
 @import "custom";
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-app-dashboard { justify-content: center; }
+//app-dashboard { justify-content: center; }
 
 .mw-90 {
   max-width: 90px;
+}
+.w-search {
+  min-width: 30vw;
+}
+.action-link:hover {
+  cursor: pointer;
+}
+.close:focus {
+  outline: none;
+}
+.full-width {
+  width: 100%;
+}
+table {
+  width: 100%;
 }

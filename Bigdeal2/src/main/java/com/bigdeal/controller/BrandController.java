@@ -53,10 +53,10 @@ public class BrandController {
 		if (id != null) {
 			item = this.brandDAO.findById(id);
 		}
-		if (item != null && item.getImage() != null) {
-			response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-			response.getOutputStream().write(item.getImage());
-		}
+//		if (item != null && item.getImage() != null) {
+//			response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+//			response.getOutputStream().write(item.getImage());
+//		}
 		response.getOutputStream().close();
 	}
 

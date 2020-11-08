@@ -1,0 +1,79 @@
+<div class="mt-2">
+  <div>
+    <h2 class="text-uppercase">{{'brand.title' | translate}}</h2>
+    <div class="d-flex justify-content-end">
+      <form>
+        <mat-form-field class="w-search">
+          <mat-label>{{'product.search' | translate}}</mat-label>
+          <input matInput placeholder="{{'product.search' | translate}}..."
+                 [formControl]="brandName"/>
+          <button mat-icon-button matSuffix (click)="getAllBrand(brandName.value)">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </mat-form-field>
+        <button mat-flat-button color="primary" class="ml-2" (click)="openBrand()">
+          <i class="fa fa-plus"
+             aria-hidden="true"></i> {{'management.create' | translate}}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="brands">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="brandName">
+      <th mat-header-cell *matHeaderCellDef> {{'brand.name' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.brandName}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef> {{'brand.image' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.image}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> {{'brand.description' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="deletedAt">
+      <th mat-header-cell *matHeaderCellDef> {{'brand.deleteDate' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.deletedAt | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef> {{'brand.createDate' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.createdAt | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="updatedAt">
+      <th mat-header-cell *matHeaderCellDef> {{'brand.updateDate' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.updatedAt | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <a class="pr-1" (click)="openBrand(element)" matTooltip="{{('product.edit' | translate)}}"><i
+          class="fa fa-edit"></i></a>
+        <a (click)="openConfirm(element.id)" matTooltip="{{('product.delete' | translate)}}"><i
+          class="fa fa-trash-o"></i></a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

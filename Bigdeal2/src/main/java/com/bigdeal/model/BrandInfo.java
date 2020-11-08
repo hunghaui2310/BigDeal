@@ -6,7 +6,7 @@ public class BrandInfo {
 
 	private Long id;
 	private String brandName;
-	private byte[] image;
+	private String image;
 	private String description;
 	private Date deletedAt;
 	private Date createdAt;
@@ -19,10 +19,10 @@ public class BrandInfo {
 		this.brandName = brandName;
 	}
 
-	public BrandInfo(String brandName, byte[] image, String description, Date deletedAt, Date createdAt,
+	public BrandInfo(Long id, String brandName, String description, Date createdAt, Date deletedAt,
 			Date updatedAt) {
+		this.id = id;
 		this.brandName = brandName;
-		this.image = image;
 		this.description = description;
 		this.deletedAt = deletedAt;
 		this.createdAt = createdAt;
@@ -49,14 +49,6 @@ public class BrandInfo {
 
 	public void setBrandName(String brandName) {
 		this.brandName = brandName;
-	}
-
-	public byte[] getImage() {
-		return this.image;
-	}
-
-	public void setImage(byte[] image) {
-		this.image = image;
 	}
 
 	public String getDescription() {
@@ -89,5 +81,13 @@ public class BrandInfo {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }
