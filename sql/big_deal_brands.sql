@@ -1,0 +1,2 @@
+INSERT INTO big_deal.brands (id, brand_name, description, slug, created_at, updated_at, deleted_at) VALUES (1, 'SamSung', 'This is best of electronic', null, '2020-11-08 21:05:56', '2020-11-09 14:25:04', null);
+INSERT INTO big_deal.brands (id, brand_name, description, slug, created_at, updated_at, deleted_at) VALUES (6, 'Dell', 'This is Test', null, '2020-11-08 18:33:10', '2020-11-08 18:33:26', null);

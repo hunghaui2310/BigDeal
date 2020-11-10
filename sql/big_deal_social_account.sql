@@ -1,0 +1,1 @@
+INSERT INTO big_deal.social_account (id, username, password) VALUES (1, 'Trần Văn Cừ', 'XZfNMOeU');

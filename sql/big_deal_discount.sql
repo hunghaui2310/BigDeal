@@ -1,0 +1,5 @@
+INSERT INTO big_deal.discount (id, discount_percent, start_date, end_date, created_at, updated_at, deleted_at) VALUES (1, 5.00, '2020-01-01', '2020-01-20', '2020-07-14 01:44:34', '2020-07-20 13:47:14', null);
+INSERT INTO big_deal.discount (id, discount_percent, start_date, end_date, created_at, updated_at, deleted_at) VALUES (2, 15.00, '2020-01-01', '2020-07-20', '2020-07-14 02:41:33', '2020-07-20 13:47:21', null);
+INSERT INTO big_deal.discount (id, discount_percent, start_date, end_date, created_at, updated_at, deleted_at) VALUES (3, 20.00, '2020-01-01', '2020-07-15', '2020-07-14 02:41:39', '2020-07-15 07:50:20', null);
+INSERT INTO big_deal.discount (id, discount_percent, start_date, end_date, created_at, updated_at, deleted_at) VALUES (4, 10.00, '2020-01-01', '2020-07-20', '2020-07-14 02:41:44', '2020-07-20 13:47:18', null);
+INSERT INTO big_deal.discount (id, discount_percent, start_date, end_date, created_at, updated_at, deleted_at) VALUES (5, 50.00, '2020-01-01', '2020-07-17', '2020-07-14 04:29:28', '2020-07-17 01:44:25', null);

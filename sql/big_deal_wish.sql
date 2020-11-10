@@ -1,0 +1,14 @@
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (3, '14', '1', '2020-07-17 03:15:09', '2020-07-17 03:15:09');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (4, '14', '2', '2020-07-17 03:15:11', '2020-07-17 03:15:11');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (5, '14', '3', '2020-07-17 03:15:14', '2020-07-17 03:15:14');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (6, '14', '4', '2020-07-17 03:16:33', '2020-07-17 03:16:33');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (15, '15', '4', '2020-07-17 04:35:42', '2020-07-17 04:35:42');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (17, '15', '2', '2020-07-18 11:03:55', '2020-07-18 11:03:55');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (18, '15', '6', '2020-07-18 11:14:42', '2020-07-18 11:14:42');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (19, 'user01', 'S005', '2020-09-28 08:53:55', '2020-09-28 08:53:55');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (20, 'user01', 'S111', '2020-09-28 09:19:19', '2020-09-28 09:19:19');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (21, 'user01', 'S006', '2020-09-28 09:23:16', '2020-09-28 09:23:16');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (23, 'user01', 'S003', '2020-09-28 10:32:03', '2020-09-28 10:32:03');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (24, 'user03', 'S005', '2020-09-29 06:59:09', '2020-09-29 06:59:09');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (25, 'user04', 'S111', '2020-09-29 07:13:08', '2020-09-29 07:13:08');
+INSERT INTO big_deal.wish (id, user_name, product_code, created_at, updated_at) VALUES (26, 'trungnam', 'S006', '2020-10-05 02:00:51', '2020-10-05 02:00:51');

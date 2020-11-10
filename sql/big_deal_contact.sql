@@ -1,0 +1,1 @@
+INSERT INTO big_deal.contact (id, name, email, phone_number, subject, message, created_at, updated_at) VALUES (1, 'Nguyễn Đức Âu 222', 'au.nguyen@sotatek.com', '0377524660', 'fdssf', 'ffffffffffff', '2020-07-17 07:36:05', '2020-07-17 07:36:05');

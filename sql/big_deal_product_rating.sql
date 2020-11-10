@@ -1,0 +1,18 @@
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (1, 'employee1', 'SP_01', 5, 'gggggggggggggggggggggggggg', '2020-07-16 19:56:28', '2020-07-16 19:56:28');
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (2, 'employee1', 'SP_01', 3, 'gfgfdgfdgfd', '2020-07-16 19:56:28', '2020-07-16 19:56:28');
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (3, 'employee1', 'SP_01', 4, 'hghgfhgfhgfhgf', '2020-07-16 19:56:28', '2020-07-16 19:56:28');
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (4, 'employee1', 'SP_01', 1, 'hgfhgfhf', '2020-07-16 20:18:54', '2020-07-16 20:18:54');
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (5, 'employee1', 'SP_07', 5, 'rffffffffffffffffff', '2020-07-16 20:19:08', '2020-07-16 20:19:08');
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (6, 'employee1', 'SP_08', 3, 'gggggggggggggggggggggggggggggg', '2020-07-16 20:25:59', '2020-07-16 20:25:59');
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (7, 'user01', 'SP_01', 1, 'mnmbnmnb', '2020-09-28 10:20:07', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (8, 'user01', 'SP_06', 1, 'fdgfdgfdgfgfd', '2020-09-28 10:22:30', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (9, 'user01', 'SP_01', 1, 'hetrtretre', '2020-09-28 10:29:00', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (10, 'user01', '', 1, 'mbbmnbmbn', '2020-09-28 10:37:26', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (11, 'user01', '', 1, 'czcxcxz', '2020-09-28 10:37:32', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (12, 'user01', 'SP_01', 1, 'jkljklk', '2020-09-28 10:37:45', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (13, 'user03', 'SP_01', 1, 'gfdgfdgfd', '2020-09-29 07:01:40', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (14, 'user03', 'SP_01', 1, 'user review', '2020-09-29 07:02:15', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (15, 'user04', 'SP_02', 1, 'fdsfdsf', '2020-09-29 07:11:26', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (16, 'user04', 'SP_03', 1, 'san pham tốt', '2020-09-29 07:15:05', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (17, '3431128656947920Âu Nguyễn', 'SP_04', 1, 'gfdgfdgdf', '2020-09-29 09:42:12', null);
+INSERT INTO big_deal.product_rating (id, user_name, product_code, rating, message, created_at, updated_at) VALUES (18, 'user_test', 'SP_05', 1, 'Test', '2020-10-18 10:20:53', null);
