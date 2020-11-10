@@ -19,13 +19,13 @@ export class BrandService {
     }
   }
 
-  saveBrand(brand: IBrand) {
+  saveBrand(brand: IBrand, file: any) {
     if (brand.id) {
-      return this.http.get(appConstrains.brandAPI.saveBrand + '?id=' + brand.id
-        + '&brandName=' + brand.brandName + '&description=' + brand.description);
+      return this.http.post(appConstrains.brandAPI.saveBrand + '?id=' + brand.id
+        + '&brandName=' + brand.brandName + '&description=' + brand.description, file);
     } else {
-      return this.http.get(appConstrains.brandAPI.saveBrand
-        + '?brandName=' + brand.brandName + '&description=' + brand.description);
+      return this.http.post(appConstrains.brandAPI.saveBrand
+        + '?brandName=' + brand.brandName + '&description=' + brand.description, file);
     }
   }
 }

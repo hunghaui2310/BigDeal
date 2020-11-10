@@ -85,7 +85,10 @@ public class Bigdeal2Application {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/api").allowedOrigins("http://localhost:4200");
+				registry
+						.addMapping("/api/")
+						.allowedMethods("GET", "POST", "PUT", "DELETE")
+						.allowedOrigins("http://localhost:4200");
 			}
 		};
 	}

@@ -7,16 +7,13 @@ import com.bigdeal.dao.ProductDAO;
 import com.bigdeal.dao.ProductRatingDAO;
 import com.bigdeal.entity.Brands;
 import com.bigdeal.entity.Categories;
-import com.bigdeal.entity.Product;
 import com.bigdeal.entity.ProductRating;
 import com.bigdeal.form.ProductForm;
 import com.bigdeal.form.ResponseForm;
 import com.bigdeal.model.ProductInfo;
 import com.bigdeal.pagination.PaginationResult;
-import com.bigdeal.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;

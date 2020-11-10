@@ -133,4 +133,12 @@ public class BrandDAO {
 		}
 	}
 
+	public Long getLastId() throws Exception{
+		String sql = "SELECT MAX(id) FROM brands";
+
+		Session session = this.sessionFactory.getCurrentSession();
+		Query<Brands> query = session.createNativeQuery(sql, Brands.class);
+		return query.getSingleResult().getId();
+	}
+
 }

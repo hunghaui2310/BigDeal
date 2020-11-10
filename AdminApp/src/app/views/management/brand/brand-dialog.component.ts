@@ -47,8 +47,10 @@ export class BrandDialogComponent implements OnInit {
 
   actionDialog(): void {
     const brand = this.createFrom();
-    console.log('brand to save', brand);
-    this.brandService.saveBrand(brand).subscribe((res) => {
+    const file = new FormData();
+    file.append('files', this.myFiles);
+    console.log('brand to save', this.myFiles);
+    this.brandService.saveBrand(brand, file).subscribe((res) => {
       if (res['status']) {
         if (this.data.product) {
           this.appService.showSuccess('Edit Brand Success');

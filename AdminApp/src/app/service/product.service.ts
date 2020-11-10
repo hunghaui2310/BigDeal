@@ -23,8 +23,8 @@ export class ProductService {
     return this.http.get(appConstrains.productAPI.deleteProduct + '?code=' + code);
   }
 
-  saveProduct(product: IProduct) {
-    return this.http.get(appConstrains.productAPI.saveProduct + '?brandId=' + product.brandId + '&categoryId=' + product.categoryId +
-            '&code=' + product.code + '&discount=' + product.discount + '&name=' + product.name + '&price=' + product.price);
+  saveProduct(product: IProduct, file: any) {
+    return this.http.post(appConstrains.productAPI.saveProduct + '?brandId=' + product.brandId + '&categoryId=' + product.categoryId +
+            '&code=' + product.code + '&discount=' + product.discount + '&name=' + product.name + '&price=' + product.price, file);
   }
 }

@@ -59,7 +59,10 @@ export class ProductDialogComponent implements OnInit {
 
   actionDialog(): void {
     const product = this.createFrom();
-    this.productService.saveProduct(product).subscribe((res) => {
+    const file = new FormData();
+    file.append('files', this.myFiles);
+    console.log('file,', this.myFiles);
+    this.productService.saveProduct(product, file).subscribe((res) => {
       if (res['status']) {
         if (this.data.product) {
           this.appService.showSuccess('Edit Product Success');

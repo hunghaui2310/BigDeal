@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.bigdeal.dao.*;
 import com.bigdeal.entity.Account;
 import com.bigdeal.form.*;
 import org.apache.commons.lang.exception.ExceptionUtils;
@@ -25,14 +26,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bigdeal.constants.Consts;
-import com.bigdeal.dao.AccountDAO;
-import com.bigdeal.dao.BannerDAO;
-import com.bigdeal.dao.BrandDAO;
-import com.bigdeal.dao.CategoryDAO;
-import com.bigdeal.dao.OrderDAO;
-import com.bigdeal.dao.ProductDAO;
-import com.bigdeal.dao.ProductRatingDAO;
-import com.bigdeal.dao.WishDAO;
 import com.bigdeal.entity.Order;
 import com.bigdeal.entity.Product;
 import com.bigdeal.entity.Wish;

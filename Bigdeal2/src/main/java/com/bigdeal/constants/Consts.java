@@ -8,4 +8,8 @@ public class Consts {
 	public static final String ROLE_USER = "ROLE_USER";
 	public static final String SUCCESS = "SUCCESS";
 	public static final String FAILED = "FAILED";
+
+	public interface FOLDER {
+			String BRAND = "brand";
+	}
 }

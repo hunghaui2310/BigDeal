@@ -1,12 +1,9 @@
 package com.bigdeal.controller.frontend;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
+import com.bigdeal.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -14,12 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bigdeal.constants.Consts;
-import com.bigdeal.dao.BannerDAO;
-import com.bigdeal.dao.BlogDAO;
-import com.bigdeal.dao.BrandDAO;
-import com.bigdeal.dao.CategoryDAO;
-import com.bigdeal.dao.ProductDAO;
-import com.bigdeal.dao.ProductRatingDAO;
 import com.bigdeal.entity.Product;
 import com.bigdeal.form.ProductRatingForm;
 import com.bigdeal.pagination.PaginationResult;
